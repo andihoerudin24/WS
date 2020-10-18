@@ -1,4 +1,4 @@
-FROM node
+FROM node:latest
 
 # Create app directory
 WORKDIR /home/andihoerudin24/WS
