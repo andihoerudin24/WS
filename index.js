@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 const server = require("http").createServer(app);
 const io = require("socket.io").listen(server);
-const port = 3060;
+const port = 8080;
 const { v1:uuidv1 } = require('uuid')
 const messageHanlder = require('./handlers/message.handlers')
-//let currentUserId = 2;
+//let currentUserId = 2;r
 const users = {};
 
 const createUserAvatar = () =>{
@@ -42,6 +42,7 @@ io.on("connection", (socket) => {
        case "server/join":
           users[socket.id].username=action.username;
           users[socket.id].avatar =createUserAvatar()
+          console.log('server',users)
           io.emit("action",
               {
                  type:"users_online",
